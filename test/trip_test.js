@@ -1,3 +1,6 @@
+var total_earning = require('../total_earning')
+var earning = require('../earning');
+var names = require('../names');
 var trip2 = require('../trip2');
 var records = require('../records');
 var minimum = require('../minimum');
@@ -76,12 +79,64 @@ it('it should give me all the reacords of "CA 123 456"', function(){
 });
 
 it('it should tell me how many trips did "CA 234 567" make', function(){
-  var results = trip2(capeTownTaxis);
-  assert.equal(results, 11)
-})
 
+var reg = trip2(capeTownTaxis);
+  assert.equal(trip2(capeTownTaxis,"CA 234 567"), reg)
+})
+it('it should give me the routine names for "CA 345 678"', function(){
+       var results = names(capeTownTaxis, "CA 345 678");
+        assert.deepEqual(results, ["Cape Town - Langa","Cape Town - Cape Town"]);
 
 });
+
+it('it should give me the total earning for "CA 234 567"', function(){
+  var results = earning(capeTownTaxis, "CA 234 567");
+  assert.equal(results, 132);
+})
+it('it should give me the total earning for each taxi', function(){
+  var results = total_earning(capeTownTaxis);
+  assert.deepEqual(results,
+
+
+    [{
+               RegistrationNumber:"CA 123 456",
+               Earning:117
+             },
+             {
+               RegistrationNumber:"CA 234 567",
+               Earning:132
+             },
+             {
+               RegistrationNumber:"CA 123 456",
+               Earning:132
+             },
+             {
+               RegistrationNumber:"CA 345 678",
+               Earning:104
+             },
+             {
+               RegistrationNumber:"CA 345 678",
+               Earning:130
+             }]
+              );
+
+
+
+})
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 var durbanTaxis = [
@@ -174,4 +229,71 @@ it('it should give me all the reacords of "ND 123 456"', function(){
   assert.deepEqual(records(durbanTaxis,"ND 123 456"), recp);
 })
 
+it('it should tell me how many trips did "ND 234 567" make', function(){
+
+var reg = trip2(durbanTaxis);
+  assert.equal(trip2(durbanTaxis,"ND 234 567"), reg)
+})
+
+it('it should give me the routine names for "ND 345 678"', function(){
+       var results = names(durbanTaxis, "ND 345 678");
+        assert.deepEqual(results, ["Durban - Umbilo","Durban - University of KZN","Durban - Umlazi Station"]);
+
 });
+
+
+it('it should give me the total earning for "ND 234 567"', function(){
+  var results = earning(durbanTaxis, "ND 234 567");
+  assert.equal(results, 387);
+})
+
+it('it should give me the total earning for each taxi', function(){
+  //var results = total_earning(durbanTaxis);
+  assert.deepEqual(total_earning(durbanTaxis),
+
+
+
+
+             [{
+             RegistrationNumber:"ND 123 456",
+             Earning:98
+           },
+           {
+             RegistrationNumber:"ND 234 567",
+             Earning:126
+           },
+           {
+             RegistrationNumber:"ND 345 678",
+             Earning:112
+           },
+           {
+             RegistrationNumber:"ND 234 567",
+             Earning:126
+           },
+           {
+             RegistrationNumber:"ND 234 567",
+             Earning:63
+           },
+           {
+             RegistrationNumber:"ND 345 678",
+             Earning:126
+           },
+           {
+             RegistrationNumber:"ND 123 456",
+             Earning:120
+           },
+           {
+             RegistrationNumber:"ND 234 567",
+             Earning:72
+           },
+           {
+             RegistrationNumber:"ND 345 678",
+             Earning:280
+           }]
+
+            );
+
+          });
+
+
+})
