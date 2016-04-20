@@ -6,6 +6,6 @@ module.exports = function(en,reg){
           total += Number(naam.Fare) *Number(naam.Trips);
     }
   });
-
+//console.log(total);
   return total;
 }

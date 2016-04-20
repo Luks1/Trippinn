@@ -3,5 +3,6 @@ module.exports = function(line){
   line.forEach(function(list){
     total= total + list.Trips
   });
-  return total;
+  //console.log(total);
+   return total;
 }

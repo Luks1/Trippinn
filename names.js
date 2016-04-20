@@ -1,5 +1,5 @@
 module.exports = function(naam,rgN){
-  
+
 	var list = [];
 
 	naam.forEach(function(tx){
@@ -10,5 +10,6 @@ module.exports = function(naam,rgN){
 		}
 
 	});
+  //console.log(list);
   return list;
 }

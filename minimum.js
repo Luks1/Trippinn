@@ -9,5 +9,6 @@ module.exports = function(min2){
     }
 
 })
+//console.log(min);
 return min;
 };

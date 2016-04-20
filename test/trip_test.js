@@ -94,35 +94,12 @@ it('it should give me the total earning for "CA 234 567"', function(){
   assert.equal(results, 132);
 })
 it('it should give me the total earning for each taxi', function(){
-  var results = total_earning(capeTownTaxis);
-  assert.deepEqual(results,
+
+  //var results = total_earning(capeTownTaxis);
+  assert.deepEqual(total_earning(capeTownTaxis), {"CA 123 456": 249,"CA 234 567": 132,"CA 345 678": 234});
 
 
-    [{
-               RegistrationNumber:"CA 123 456",
-               Earning:117
-             },
-             {
-               RegistrationNumber:"CA 234 567",
-               Earning:132
-             },
-             {
-               RegistrationNumber:"CA 123 456",
-               Earning:132
-             },
-             {
-               RegistrationNumber:"CA 345 678",
-               Earning:104
-             },
-             {
-               RegistrationNumber:"CA 345 678",
-               Earning:130
-             }]
-              );
-
-
-
-})
+});
 
 });
 
@@ -208,7 +185,7 @@ it('it should give me the minimum number of trip on taxis', function(){
        var results = minimum(durbanTaxis);
         assert.equal(results,9);
 
-})
+});
 
 
 it('it should give me all the reacords of "ND 123 456"', function(){
@@ -227,13 +204,13 @@ it('it should give me all the reacords of "ND 123 456"', function(){
   }];
 
   assert.deepEqual(records(durbanTaxis,"ND 123 456"), recp);
-})
+});
 
 it('it should tell me how many trips did "ND 234 567" make', function(){
 
 var reg = trip2(durbanTaxis);
   assert.equal(trip2(durbanTaxis,"ND 234 567"), reg)
-})
+});
 
 it('it should give me the routine names for "ND 345 678"', function(){
        var results = names(durbanTaxis, "ND 345 678");
@@ -245,55 +222,11 @@ it('it should give me the routine names for "ND 345 678"', function(){
 it('it should give me the total earning for "ND 234 567"', function(){
   var results = earning(durbanTaxis, "ND 234 567");
   assert.equal(results, 387);
-})
+});
 
 it('it should give me the total earning for each taxi', function(){
   //var results = total_earning(durbanTaxis);
-  assert.deepEqual(total_earning(durbanTaxis),
+  assert.deepEqual(total_earning( durbanTaxis),{"ND 123 456":218,"ND 234 567":387,"ND 345 678":518});
 
-
-
-
-             [{
-             RegistrationNumber:"ND 123 456",
-             Earning:98
-           },
-           {
-             RegistrationNumber:"ND 234 567",
-             Earning:126
-           },
-           {
-             RegistrationNumber:"ND 345 678",
-             Earning:112
-           },
-           {
-             RegistrationNumber:"ND 234 567",
-             Earning:126
-           },
-           {
-             RegistrationNumber:"ND 234 567",
-             Earning:63
-           },
-           {
-             RegistrationNumber:"ND 345 678",
-             Earning:126
-           },
-           {
-             RegistrationNumber:"ND 123 456",
-             Earning:120
-           },
-           {
-             RegistrationNumber:"ND 234 567",
-             Earning:72
-           },
-           {
-             RegistrationNumber:"ND 345 678",
-             Earning:280
-           }]
-
-            );
-
-          });
-
-
-})
+});
+});

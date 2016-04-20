@@ -6,6 +6,7 @@ one.forEach(function(real){
 
 rr.push(real);
     }
+  //console.log(rr);
 return rr;
   });
 

@@ -1,16 +1,20 @@
-module.exports = function(line){
+module.exports = function(lists){
 
-var arr = [];
+var mapList = {};
 
-  var myRslts = line.map(function(line){
+  lists.forEach(function(list){
 
-    answer = {
-            RegistrationNumber : line.RegistrationNumber,
-            Earning : line.Fare * line.Trips
-          };
-           arr.push(answer);
+    var reg = list.RegistrationNumber;
 
+    var ger = list.Trips * list.Fare
+
+    if(mapList[reg]=== undefined){
+
+      mapList[reg] = 0;
+    }
+   mapList[reg]+= ger;
   });
+    console.log(mapList);
 
-    return arr;
-}
+    return mapList;
+};
